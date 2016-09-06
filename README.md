@@ -1,5 +1,5 @@
 # Arduino Tool MCU OTA
-OTA Upload tool for Microcontroller of ESP8266 based boards
+OTA Upload tool for ESP8266 based boards
 
 
 ## Usage

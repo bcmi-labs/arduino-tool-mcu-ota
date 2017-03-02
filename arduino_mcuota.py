@@ -30,6 +30,11 @@ import argparse, requests, sys, os
 _version = '0.0.1'
 _serv_file = 'otafile'
 
+
+def exception_handler(request, exception):
+	print "req_error"
+	sys.exit(-1)
+
 def _split_file(filename, nlines):
 	"""Splits the input file every nlines lines."""
 	counter = 1
@@ -49,34 +54,31 @@ def _split_file(filename, nlines):
 
 	return file_list
 
+
 def _upload_files(file_list, filename, address, port = 80):
 	try:
 		url = "http://" + address + ":" + str(port) + "/"+ _serv_file
 		totchunk = len(file_list)
 		numchunk = 0
 		payload = {'totchunk': str(totchunk), 'numchunk': str(numchunk) }
-		headers = {'Content-type': 'multipart/form-data'}
 		print "Sending " + filename + " to host " + address
 		for index, fl in enumerate(file_list):
-		#for fl in iter(file_list):
 			index += 1
 			f = open(fl, 'rb')
-
 			files = {'file': f}
 			payload['numchunk'] = str(index)
-			r = requests.post(url, files=files, params=payload, headers=headers, timeout=15 )
+			r = requests.post(url, files=files, params=payload, timeout=40 )
 			print "["+str(index) + " / " + str(len(file_list)) + "] Done..."
 
-			#print str(r.status_code) + " " + r.content
 		print 'Upload ' + r.content
 	except requests.RequestException as req_error:
 		print req_error
 		sys.exit(-1)
 
+
 def _remove_files(file_list):
 	try:
 		for fl in iter(file_list):
-			#print "Deleting file : " + fl
 			os.remove(fl)
 	except Exception as ex:
 		print ex
@@ -103,4 +105,4 @@ _list = _split_file(args.file.name, args.lines)
 _upload_files(_list, args.file.name, args.ip, args.port)
 _remove_files(_list)
 
-#sys.exit(0)
+sys.exit(0)

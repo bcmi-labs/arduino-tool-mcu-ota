@@ -1,19 +1,19 @@
-# Arduino Tool MCU OTA
-OTA Upload tool for ESP8266 based boards
+# WiFi Link MCU OTA
+Microcontroller OTA upload tool for ESP8266 Arduino based boards running WiFi Link
 
 
 ## Usage
-###Required Arguments:
+### Required Arguments:
 * *-i*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--ip*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP address of the destination board.
 * *-f*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--file*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Firmware file to upload onto the mcu
 
-###Optional Arguments:
+### Optional Arguments:
 * *-p*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--port*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection port [default 80]
 * *-l*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--lines*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of lines of the specified files to upload for each request.
 * *-h*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--help*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help
- 
-  
-####examples:
+
+
+#### examples:
 
 ```shell
 $> arduino_mcuota -f /tmp/Blink.ino.hex -i 192.168.1.120 -p 80
@@ -37,15 +37,15 @@ Sending /tmp/Blink.ino.hex to host 192.168.60.121
 Upload Completed
 ```
 
-##Build
+## Build
 You can build this tool the same way in Mac, Windows and Linux platforms
 
-###Prerequisites
+### Prerequisites
 * python
 * pip
 * pyinstaller : follow the official documentation for the [installation](https://pyinstaller.readthedocs.io/en/stable/installation.html)
 
-###Build 
+### Build
 To build run this command:
 ```shell
 $> pyinstaller arduino_mcuota.py -F

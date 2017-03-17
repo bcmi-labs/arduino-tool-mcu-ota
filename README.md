@@ -10,15 +10,16 @@ Microcontroller OTA upload tool for ESP8266 Arduino based boards running WiFi Li
 ### Optional Arguments:
 * *-p*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--port*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection port [default 80]
 * *-l*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--lines*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of lines of the specified files to upload for each request.
-* *-h*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--help*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help
+
+* ~~-h*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--help*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help~~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__*[coming soon...]*__
 
 
 #### examples:
 
 ```shell
-$> arduino_mcuota -f /tmp/Blink.ino.hex -i 192.168.1.120 -p 80
+$> ./arduino_mcuota -f /tmp/Blink.ino.hex -i 192.168.0.110 -p 80
 
-Sending /tmp/Blink.ino.hex to host 192.168.60.121
+Sending /tmp/Blink.ino.hex to host 192.168.0.110
 [1 / 15] Done...
 [2 / 15] Done...
 [3 / 15] Done...
@@ -41,14 +42,14 @@ Upload Completed
 You can build this tool the same way in Mac, Windows and Linux platforms
 
 ### Prerequisites
-* python
-* pip
-* pyinstaller : follow the official documentation for the [installation](https://pyinstaller.readthedocs.io/en/stable/installation.html)
+* golang [installation](https://golang.org/doc/install)
+* [resty libraries](https://github.com/go-resty/resty)
+
 
 ### Build
 To build run this command:
 ```shell
-$> pyinstaller arduino_mcuota.py -F
+$> go build arduino_mcuota.go
 ```
 It creates a `build` and `dist` folder. Destination binary is inside `dist` folder
 

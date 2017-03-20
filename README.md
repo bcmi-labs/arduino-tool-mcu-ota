@@ -8,9 +8,9 @@ Microcontroller OTA upload tool for ESP8266 Arduino based boards running WiFi Li
 * *-f*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Firmware file to upload onto the mcu
 
 ### Optional Arguments:
-* *-p *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection port [default 80]
-* *-l *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of lines of the specified files to upload for each request
-* *-h *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help
+* *-p*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection port [default 80]
+* *-l*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of lines of the specified files to upload for each request
+* *-h*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help
 
 
 #### examples:

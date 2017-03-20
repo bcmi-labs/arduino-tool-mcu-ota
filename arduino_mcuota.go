@@ -51,10 +51,6 @@ func upload_files(list []string){
 func split(){
     file_list := []string {}
 
-//    lines, err := strconv.Atoi(nlines)
-//    if err != nil {
-//        fmt.Println(err)
-//    }
     lines := nlines
      file, err := os.Open(filename)
      if err != nil {
@@ -69,12 +65,6 @@ func split(){
         reader := bufio.NewReader(file)
         for {
             line, _, err := reader.ReadLine()
-
-//            if err == nil {
-//                 fmt.Print("Error: ")
-//                 fmt.Println(err)
-//                 break
-//            }
             
             if err == io.EOF {
                  break

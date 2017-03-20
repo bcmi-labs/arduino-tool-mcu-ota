@@ -4,14 +4,13 @@ Microcontroller OTA upload tool for ESP8266 Arduino based boards running WiFi Li
 
 ## Usage
 ### Required Arguments:
-* *-i*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--ip*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP address of the destination board.
-* *-f*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--file*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Firmware file to upload onto the mcu
+* *-i*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP address of the destination board.
+* *-f*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Firmware file to upload onto the mcu
 
 ### Optional Arguments:
-* *-p*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--port*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection port [default 80]
-* *-l*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--lines*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of lines of the specified files to upload for each request.
-
-* ~~-h*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--help*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help~~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__*[coming soon...]*__
+* *-p *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection port [default 80]
+* *-l *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of lines of the specified files to upload for each request
+* *-h *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help
 
 
 #### examples:

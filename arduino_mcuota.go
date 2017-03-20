@@ -8,18 +8,19 @@ import (
     "bufio"
     "math"
     "gopkg.in/resty.v0"
+    "flag"
 )
 
 var filename string
-var nlines string
-var port string 
 var address string
+var port int
+var nlines int
 
 const endpoint = "otafile"
 
 
 func upload_files(list []string){
-    url_base := "http://" + address + ":" + port + "/" + endpoint
+    url_base := "http://" + address + ":" + strconv.Itoa(port) + "/" + endpoint
     totchunk := len(list)
     
     fmt.Println("Sending " + filename + " to host " + address)
@@ -33,7 +34,8 @@ func upload_files(list []string){
         
         if resp.StatusCode() == 200 || err != nil {
             fmt.Println("["+strconv.Itoa(index+1)+" / "+strconv.Itoa(totchunk)+"] Done")
-            if index==totchunk {
+                
+            if index+1==totchunk {
                 fmt.Println("Upload all done")
             }
         } else
@@ -46,33 +48,14 @@ func upload_files(list []string){
     clean(list)
 }
 
-func parse_args(){
-    port = "80";
-    nlines = "20";
-    args := os.Args[1:]
-
-    for i:=0; i < len(args); i+=2 {
-        switch args[i]{
-            case "-f" , "--file":
-                filename = args[i+1]
-            case "-l" , "--lines":
-                nlines = args[i+1] 
-            case "-p" , "--port":
-                port = args[i+1]
-            case "-i" , "--ip":
-                address = args[i+1]
-        }
-    }
-    split()
-}
-
 func split(){
     file_list := []string {}
 
-    lines, err := strconv.Atoi(nlines)
-    if err != nil {
-        fmt.Println(err)
-    }
+//    lines, err := strconv.Atoi(nlines)
+//    if err != nil {
+//        fmt.Println(err)
+//    }
+    lines := nlines
      file, err := os.Open(filename)
      if err != nil {
              panic(err)
@@ -124,6 +107,30 @@ func clean(list []string){
     }
 }
 
+func get_args(){
+    flag.StringVar(&filename, "f", "", "firmware file to upload (required)")
+    flag.StringVar(&address, "i", "", "ip of the esp8266 based board to upload to (required)")
+    flag.IntVar(&port, "p", 80, "network port")
+    flag.IntVar(&nlines, "l", 20, "max lines for each splitted files")
+
+    flag.Parse()
+    
+    if len(filename)>0 && len(address)>0 {
+        split()
+    } else {
+        fmt.Print("usage : ")
+        fmt.Println("arduino_mcuota [-h] -f FILE -i IP [-p PORT] [-l LINES]")
+        fmt.Print("error: ")
+        
+        if len(filename) == 0 {
+            fmt.Println("-f is required")
+        }
+        if len(address) == 0 {
+            fmt.Println("-i is required")
+        }
+    }
+}
+
 func getFileLines(filename string)(int){
         tot:=0
         file, err := os.Open(filename)
@@ -145,5 +152,5 @@ func getFileLines(filename string)(int){
 
 
 func main(){
-    parse_args()
+    get_args()
 }

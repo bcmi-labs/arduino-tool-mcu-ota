@@ -16,7 +16,7 @@ Microcontroller OTA upload tool for ESP8266 Arduino based boards running WiFi Li
 #### examples:
 
 ```shell
-$> ./arduino_mcuota -f /tmp/Blink.ino.hex -i 192.168.0.110 -p 80
+$> ./wifilink_mcuota -f /tmp/Blink.ino.hex -i 192.168.0.110 -p 80
 
 Sending /tmp/Blink.ino.hex to host 192.168.0.110
 [1 / 15] Done...
@@ -48,7 +48,7 @@ You can build this tool the same way in Mac, Windows and Linux platforms
 ### Build
 To build run this command:
 ```shell
-$> go build arduino_mcuota.go
+$> go build wifilink_mcuota.go
 ```
 It creates a `build` and `dist` folder. Destination binary is inside `dist` folder
 
